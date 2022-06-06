@@ -1,3 +1,9 @@
 {
-  "pluginsFile": false
+  "pluginsFile": false,
+  "viewportHeight": 880,
+  "viewportWidth": 1280,
+  "video": false,
+  "watchForFileChanges": false,
+  "screenshotOnRunFailure": false,
+  "supportFile": "cypress/support/index.js"
 }
