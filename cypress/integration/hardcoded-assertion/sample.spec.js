@@ -8,18 +8,15 @@ describe("Hardcoded assertion bad practice", () => {
   });
 
   it("searches", () => {
+    const { hits } = require("../../fixtures/stories.json");
+
     cy.search("cypress.io");
     cy.wait("@getStories");
 
-    cy.fixture("stories").then((stories) => {
-      cy.get(".table-row")
-        .as("tableRows")
-        .should("have.length", stories.hits.length);
-      stories.hits.forEach((hit, indice) => {
-        cy.get("@tableRows")
-        .eq(indice)
-        .should("contain", hit.title);
-      });
+    cy.get(".table-row").as("tableRows")
+      .should("have.length", hits.length);
+    hits.forEach((hit, indice) => {
+      cy.get("@tableRows").eq(indice).should("contain", hit.title);
     });
   });
 });
